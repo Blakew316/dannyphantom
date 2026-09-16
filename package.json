@@ -1,0 +1,15 @@
+{
+  "name": "phantom-dynamics-storefront",
+  "version": "2.0.0",
+  "description": "Redesigned Phantom Dynamics storefront: a zero-dependency static site generator that renders the store catalog into a modern, Shopify-style, animated shopping experience.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && node scripts/serve.js",
+    "serve": "node scripts/serve.js",
+    "extract": "python3 scripts/extract.py ./phantomdynamics-site-source ./data"
+  },
+  "engines": { "node": ">=18" },
+  "license": "UNLICENSED"
+}
