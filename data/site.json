@@ -1,0 +1,959 @@
+{
+ "nav": [
+  {
+   "name": "Lighting",
+   "url": "/lighting/",
+   "children": [
+    {
+     "name": "Blacklights",
+     "url": "/lighting/blacklights/",
+     "children": [
+      {
+       "name": "LED UV Black Lights",
+       "url": "/lighting/uv-blacklights/led-uv-black-lights/"
+      },
+      {
+       "name": "Fluorescent Blacklights",
+       "url": "/blacklights/fluorescent-blacklights/"
+      }
+     ]
+    },
+    {
+     "name": "Moving Head Lights",
+     "url": "/nightclub-dj-lighting/moving-head-lights/",
+     "children": [
+      {
+       "name": "Moving Head Spots",
+       "url": "/nightclub-dj-lighting/moving-head-lights/moving-head-spots/"
+      },
+      {
+       "name": "Moving Head Beams",
+       "url": "/nightclub-dj-lighting/moving-head-lights/moving-head-beams/"
+      },
+      {
+       "name": "Moving Head Wash",
+       "url": "/nightclub-dj-lighting/moving-head-lights/moving-head-wash/"
+      },
+      {
+       "name": "Moving Beam Scanners",
+       "url": "/nightclub-dj-lighting/moving-head-lights/moving-beam-scanners/"
+      },
+      {
+       "name": "Moving Head Hybrid",
+       "url": "/nightclub-dj-lighting/moving-head-lights/moving-head-hybrid/"
+      }
+     ]
+    },
+    {
+     "name": "DJ Effect Lighting",
+     "url": "/lighting/dj-effect-lighting/",
+     "children": [
+      {
+       "name": "Moonflower Lights",
+       "url": "/nightclub-dj-lighting/dj-effect-lighting/moonflower-lights/"
+      },
+      {
+       "name": "DJ Centerpiece Lights",
+       "url": "/nightclub-dj-lighting/dj-effect-lighting/dj-centerpiece-lights/"
+      },
+      {
+       "name": "Pin Spots",
+       "url": "/nightclub-dj-lighting/dj-effect-lighting/pin-spots/"
+      },
+      {
+       "name": "Strobe Lights",
+       "url": "/nightclub-dj-lighting/dj-effect-lighting/strobe-lights/"
+      },
+      {
+       "name": "Blinders",
+       "url": "/nightclub-dj-lighting/dj-effect-lighting/blinders/"
+      },
+      {
+       "name": "LED Up Lighting",
+       "url": "/nightclub-dj-lighting/dj-effect-lighting/led-up-lighting/"
+      },
+      {
+       "name": "Battery Powered Lights",
+       "url": "/nightclub-dj-lighting/dj-effect-lighting/battery-powered-lights/"
+      },
+      {
+       "name": "Lighting Packages",
+       "url": "/nightclub-dj-lighting/dj-effect-lighting/lighting-packages/"
+      }
+     ]
+    },
+    {
+     "name": "SFX Effect Lights",
+     "url": "/lighting/sfx-effect-lights/",
+     "children": [
+      {
+       "name": "Plasma Globes & Effects",
+       "url": "/lighting/sfx-effect-lights/plasma-globes-effects/"
+      },
+      {
+       "name": "Gobo Projectors",
+       "url": "/special-effect-lights/gobo-projectors/"
+      },
+      {
+       "name": "Flame | Water Effect Lights",
+       "url": "/special-effect-lights/flame-water-effect-lights/"
+      },
+      {
+       "name": "LED Tape Lighting",
+       "url": "/special-effect-lights/led-tape-lighting/"
+      }
+     ]
+    },
+    {
+     "name": "LED Stage Lighting",
+     "url": "/lighting/led-stage-lighting/"
+    }
+   ]
+  },
+  {
+   "name": "Lasers",
+   "url": "/lasers/",
+   "children": [
+    {
+     "name": "Aerial Lasers",
+     "url": "/nightclub-lasers/aerial-lasers/"
+    },
+    {
+     "name": "Graphic Lasers",
+     "url": "/nightclub-lasers/graphic-lasers/"
+    },
+    {
+     "name": "DJ Lasers",
+     "url": "/nightclub-lasers/dj-lasers/"
+    },
+    {
+     "name": "Laser Beam Modules",
+     "url": "/nightclub-lasers/laser-beam-modules/"
+    },
+    {
+     "name": "Laser ILDA Software",
+     "url": "/nightclub-lasers/laser-ilda-software/"
+    },
+    {
+     "name": "Laser Pointers",
+     "url": "/special-effect-lights/laser-pointers/"
+    },
+    {
+     "name": "Laser Accessories",
+     "url": "/nightclub-lasers/laser-accessories/",
+     "children": [
+      {
+       "name": "Laser Bounce Mirrors",
+       "url": "/nightclub-lasers/laser-accessories/laser-bounce-mirrors/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Video Panels",
+   "url": "/video-panels/",
+   "children": [
+    {
+     "name": "LED Video Panels",
+     "url": "/led-video-wall-panels/led-video-panels/"
+    },
+    {
+     "name": "LED Panel Video Processors",
+     "url": "/led-video-wall-panels/led-panel-video-processors/"
+    },
+    {
+     "name": "LED Video Panel Accessories",
+     "url": "/led-video-wall-panels/led-video-panel-accessories/"
+    }
+   ]
+  },
+  {
+   "name": "Mirror Balls",
+   "url": "/mirror-balls/",
+   "children": [
+    {
+     "name": "Mirror Balls",
+     "url": "/mirror-disco-balls/mirror-balls/"
+    },
+    {
+     "name": "Mirror Ball Motors",
+     "url": "/mirror-disco-balls/mirror-ball-motors/"
+    },
+    {
+     "name": "Mirror Ball Packages",
+     "url": "/mirror-disco-balls/mirror-ball-packages/"
+    },
+    {
+     "name": "Mirror Ball Accessories",
+     "url": "/mirror-disco-balls/mirror-ball-accessories/"
+    }
+   ]
+  },
+  {
+   "name": "Fog | Haze | SFX",
+   "url": "/fog-haze-sfx/",
+   "children": [
+    {
+     "name": "Fog Machines",
+     "url": "/fog-haze-sfx/fog-machines/"
+    },
+    {
+     "name": "HAZE Machines",
+     "url": "/fog-haze-sfx/haze-machines/"
+    },
+    {
+     "name": "Bubble Machines",
+     "url": "/fog-haze-sfx/bubble-machines/"
+    },
+    {
+     "name": "Snow Machines",
+     "url": "/fog-haze-sfx/snow-machines/"
+    },
+    {
+     "name": "CO2 Burst Systems",
+     "url": "/fog-haze-sfx/co2-burst-systems/"
+    },
+    {
+     "name": "Confetti Cannons | Launchers",
+     "url": "/fog-haze-sfx/confetti-cannons-launchers/"
+    },
+    {
+     "name": "SFX Accessories",
+     "url": "/fog-haze-sfx/sfx-accessories/",
+     "children": [
+      {
+       "name": "DMX Fans",
+       "url": "/fog-haze-sfx/sfx-accessories/dmx-fans/"
+      },
+      {
+       "name": "SFX Machine Remote Controls",
+       "url": "/fog-haze-sfx/sfx-accessories/sfx-machine-remote-controls/"
+      }
+     ]
+    },
+    {
+     "name": "SFX Refill Fluids",
+     "url": "/fog-haze-sfx/sfx-refill-fluids/",
+     "children": [
+      {
+       "name": "Fog Refill Fluid",
+       "url": "/fog-haze-sfx/sfx-refill-fluids/fog-refill-fluid/"
+      },
+      {
+       "name": "Haze Refill Fluid",
+       "url": "/fog-haze-sfx/sfx-refill-fluids/haze-refill-fluid/"
+      },
+      {
+       "name": "Bubble Refill Fluid",
+       "url": "/fog-haze-sfx/sfx-refill-fluids/bubble-refill-fluid/"
+      },
+      {
+       "name": "Snow Refill Fluid",
+       "url": "/fog-haze-sfx/sfx-refill-fluids/snow-refill-fluid/"
+      },
+      {
+       "name": "SFX Cleaner Solution",
+       "url": "/fog-haze-sfx/sfx-refill-fluids/sfx-cleaner-solution/"
+      },
+      {
+       "name": "SFX Specialty Refill Fluids",
+       "url": "/fog-haze-sfx/sfx-refill-fluids/sfx-specialty-refill-fluids/"
+      },
+      {
+       "name": "Confetti Refill",
+       "url": "/fog-haze-sfx/sfx-refill-fluids/confetti-refill/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "DMX | Drivers | PSU",
+   "url": "/dmx-drivers-psu/",
+   "children": [
+    {
+     "name": "DMX Lighting Software",
+     "url": "/dmx-lighting-controllers/dmx-lighting-software/"
+    },
+    {
+     "name": "DMX Lighting Boards",
+     "url": "/dmx-lighting-controllers/dmx-lighting-boards/"
+    },
+    {
+     "name": "DMX LED Controllers",
+     "url": "/dmx-lighting-controllers/dmx-led-controllers/"
+    },
+    {
+     "name": "DMX Relays | Dimmers | Power Packs",
+     "url": "/dmx-lighting-controllers/dmx-relays-dimmers-power-packs/"
+    },
+    {
+     "name": "DMX Wireless",
+     "url": "/dmx-lighting-controllers/dmx-wireless/"
+    },
+    {
+     "name": "DMX Splitters | Distributors",
+     "url": "/dmx-lighting-controllers/dmx-splitters-distributors/"
+    },
+    {
+     "name": "DMX Remote Controllers",
+     "url": "/dmx-lighting-controllers/dmx-remote-controllers/"
+    },
+    {
+     "name": "DMX Controller Accessories",
+     "url": "/dmx-lighting-controllers/dmx-controller-accessories/"
+    },
+    {
+     "name": "DMX Gateway",
+     "url": "/dmx-lighting-controllers/dmx-gateway/"
+    },
+    {
+     "name": "MIDI Light Controllers",
+     "url": "/dmx-lighting-controllers/midi-light-controllers/"
+    },
+    {
+     "name": "PSU | Drivers | Controllers",
+     "url": "/dmx-lighting-controllers/psu-drivers-controllers/"
+    }
+   ]
+  },
+  {
+   "name": "Sound | Audio",
+   "url": "/sound-audio/",
+   "children": [
+    {
+     "name": "DJ Media Controllers",
+     "url": "/audio-equipment/dj-media-controllers/"
+    },
+    {
+     "name": "Mixers",
+     "url": "/audio-equipment/mixers/",
+     "children": [
+      {
+       "name": "Digital Mixers",
+       "url": "/audio-equipment/mixers/digital-mixers/"
+      },
+      {
+       "name": "DJ Mixers",
+       "url": "/audio-equipment/mixers/dj-mixers/"
+      },
+      {
+       "name": "Mixer Accessories",
+       "url": "/audio-equipment/mixers/mixer-accessories/"
+      }
+     ]
+    },
+    {
+     "name": "Speakers",
+     "url": "/audio-equipment/speakers/",
+     "children": [
+      {
+       "name": "Active Loudspeakers",
+       "url": "/audio-equipment/speakers/active-loudspeakers/"
+      },
+      {
+       "name": "Active Subwoofers",
+       "url": "/audio-equipment/speakers/active-subwoofers/"
+      },
+      {
+       "name": "Passive Loudspeakers",
+       "url": "/audio-equipment/speakers/passive-loudspeakers/"
+      },
+      {
+       "name": "Passive Subwoofers",
+       "url": "/audio-equipment/speakers/passive-subwoofers/"
+      },
+      {
+       "name": "Architectural Loudspeakers",
+       "url": "/audio-equipment/speakers/architectural-loudspeakers/"
+      },
+      {
+       "name": "Stage | Monitor Loudspeakers",
+       "url": "/audio-equipment/speakers/stage-monitor-loudspeakers/"
+      },
+      {
+       "name": "PA Speaker Systems",
+       "url": "/audio-equipment/speakers/pa-speaker-systems/"
+      },
+      {
+       "name": "Speaker Stands",
+       "url": "/audio-equipment/speakers/speaker-stands/"
+      },
+      {
+       "name": "Speaker Accessories",
+       "url": "/audio-equipment/speakers/speaker-accessories/"
+      }
+     ]
+    },
+    {
+     "name": "Microphones",
+     "url": "/audio-equipment/microphones/",
+     "children": [
+      {
+       "name": "Conventional Microphones",
+       "url": "/audio-equipment/microphones/conventional-microphones/"
+      },
+      {
+       "name": "Wireless Microphones",
+       "url": "/audio-equipment/microphones/wireless-microphones/"
+      },
+      {
+       "name": "Studio Packages",
+       "url": "/audio-equipment/microphones/studio-packages/"
+      },
+      {
+       "name": "Specialty Microphones",
+       "url": "/audio-equipment/microphones/specialty-microphones/"
+      },
+      {
+       "name": "Microphone Accessories",
+       "url": "/audio-equipment/microphones/microphone-accessories/"
+      }
+     ]
+    },
+    {
+     "name": "Headphones",
+     "url": "/audio-equipment/headphones/"
+    },
+    {
+     "name": "Power Amplifiers",
+     "url": "/audio-equipment/power-amplifiers/"
+    },
+    {
+     "name": "Audio Processing",
+     "url": "/audio-equipment/audio-processing/",
+     "children": [
+      {
+       "name": "Digital Signal Processors",
+       "url": "/audio-equipment/audio-processing/digital-signal-processors/"
+      },
+      {
+       "name": "Digital Audio Recorders",
+       "url": "/audio-equipment/audio-processing/digital-audio-recorders/"
+      },
+      {
+       "name": "Crossovers",
+       "url": "/audio-equipment/audio-processing/crossovers/"
+      },
+      {
+       "name": "Equalizers",
+       "url": "/audio-equipment/audio-processing/equalizers/"
+      },
+      {
+       "name": "Audio Interface",
+       "url": "/audio-equipment/audio-processing/audio-interface/"
+      },
+      {
+       "name": "Power Conditioners | Distribution",
+       "url": "/audio-equipment/audio-processing/power-conditioners-distribution/"
+      },
+      {
+       "name": "DB Displays",
+       "url": "/audio-equipment/audio-processing/db-displays/"
+      },
+      {
+       "name": "Network Cards",
+       "url": "/audio-equipment/audio-processing/network-cards/"
+      }
+     ]
+    },
+    {
+     "name": "Cables | Connectors",
+     "url": "/cables-connectors/",
+     "children": [
+      {
+       "name": "DMX Cables",
+       "url": "/cables-connectors/dmx-cables/"
+      },
+      {
+       "name": "XLR | Microphone Cables",
+       "url": "/cables-connectors/xlr-microphone-cables/"
+      },
+      {
+       "name": "Extension Cords | Taps",
+       "url": "/cables-connectors/extension-cords-taps/"
+      },
+      {
+       "name": "Speaker Cables",
+       "url": "/cables-connectors/speaker-cables/"
+      },
+      {
+       "name": "Speakon Cables",
+       "url": "/cables-connectors/speakon-cables/"
+      },
+      {
+       "name": "PowerLink Cables",
+       "url": "/cables-connectors/powerlink-cables/"
+      },
+      {
+       "name": "CAT5 / CAT6 Cables",
+       "url": "/cables-connectors/cat5-cat6-cables/"
+      },
+      {
+       "name": "USB Cables",
+       "url": "/cables-connectors/usb-cables/"
+      },
+      {
+       "name": "ILDA Interface Cables",
+       "url": "/cables-connectors/ilda-interface-cables/"
+      },
+      {
+       "name": "Cable Accessories | Patches",
+       "url": "/cables-connectors/cable-accessories-patches/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Truss | Stands",
+   "url": "/truss-stands/",
+   "children": [
+    {
+     "name": "Truss Segments",
+     "url": "/truss-light-stands/truss-segments/",
+     "children": [
+      {
+       "name": "I Beam Truss Segments",
+       "url": "/truss-light-stands/truss-segments/i-beam-truss-segments/"
+      },
+      {
+       "name": "Triangle Truss Segments",
+       "url": "/truss-light-stands/truss-segments/triangle-truss-segments/"
+      },
+      {
+       "name": "Square Box Segments",
+       "url": "/truss-light-stands/truss-segments/square-box-segments/"
+      }
+     ]
+    },
+    {
+     "name": "Truss T Junctions",
+     "url": "/truss-light-stands/truss-t-junctions/",
+     "children": [
+      {
+       "name": "I Beam Truss T Junctions",
+       "url": "/truss-light-stands/truss-t-junctions/i-beam-truss-t-junctions/"
+      },
+      {
+       "name": "Triangle Truss T Junctions",
+       "url": "/truss-light-stands/truss-t-junctions/triangle-truss-t-junctions/"
+      },
+      {
+       "name": "Square Truss T Junction",
+       "url": "/truss-light-stands/truss-t-junctions/square-truss-t-junction/"
+      }
+     ]
+    },
+    {
+     "name": "Truss Corner Junctions",
+     "url": "/truss-light-stands/truss-corner-junctions/",
+     "children": [
+      {
+       "name": "I Beam Corner Junctions",
+       "url": "/truss-light-stands/truss-corner-junctions/i-beam-corner-junctions/"
+      },
+      {
+       "name": "Triangle Corner Junctions",
+       "url": "/truss-light-stands/truss-corner-junctions/triangle-corner-junctions/"
+      },
+      {
+       "name": "Square Corner Junctions",
+       "url": "/truss-light-stands/truss-corner-junctions/square-corner-junctions/"
+      }
+     ]
+    },
+    {
+     "name": "Truss Circle Constructs",
+     "url": "/truss-light-stands/truss-circle-constructs/",
+     "children": [
+      {
+       "name": "Beam Circle Construct",
+       "url": "/truss-light-stands/truss-circle-constructs/beam-circle-construct/"
+      },
+      {
+       "name": "12\" I Beam Circle Constructs",
+       "url": "/truss-light-stands/truss-circle-constructs/12-i-beam-circle-constructs/"
+      },
+      {
+       "name": "12\" Triangle Circle Constructs",
+       "url": "/truss-light-stands/truss-circle-constructs/12-triangle-circle-constructs/"
+      },
+      {
+       "name": "12\" Square Circle Constructs",
+       "url": "/truss-light-stands/truss-circle-constructs/12-square-circle-constructs/"
+      },
+      {
+       "name": "16” Square Circle Constructs",
+       "url": "/truss-light-stands/truss-circle-constructs/16-square-circle-constructs/"
+      }
+     ]
+    },
+    {
+     "name": "Truss Accessories",
+     "url": "/truss-light-stands/truss-accessories/",
+     "children": [
+      {
+       "name": "Base Plates",
+       "url": "/truss-light-stands/truss-accessories/base-plates/"
+      },
+      {
+       "name": "Lighting Clamps",
+       "url": "/truss-light-stands/truss-accessories/lighting-clamps/"
+      },
+      {
+       "name": "Truss Spacers",
+       "url": "/truss-light-stands/truss-accessories/truss-spacers/"
+      },
+      {
+       "name": "Tube Segments",
+       "url": "/truss-light-stands/truss-accessories/tube-segments/"
+      },
+      {
+       "name": "Pins | Clips | Couplers",
+       "url": "/truss-light-stands/truss-accessories/pins-clips-couplers/"
+      },
+      {
+       "name": "Crank Stand Accessories",
+       "url": "/truss-light-stands/truss-accessories/crank-stand-accessories/"
+      },
+      {
+       "name": "Truss Covers",
+       "url": "/truss-light-stands/truss-accessories/truss-covers/"
+      }
+     ]
+    },
+    {
+     "name": "Mobile Truss Goalie Posts",
+     "url": "/truss-light-stands/mobile-truss-goalie-posts/"
+    },
+    {
+     "name": "Crank | Lighting Stands",
+     "url": "/truss-light-stands/crank-lighting-stands/"
+    },
+    {
+     "name": "Hoists | Tower Lifters",
+     "url": "/truss-light-stands/hoists-tower-lifters/"
+    },
+    {
+     "name": "Truss Ground Supports",
+     "url": "/truss-light-stands/truss-ground-supports/"
+    },
+    {
+     "name": "Truss Totems",
+     "url": "/truss-light-stands/truss-totems/"
+    },
+    {
+     "name": "Trade Show Systems",
+     "url": "/truss-light-stands/trade-show-systems/"
+    }
+   ]
+  },
+  {
+   "name": "Road Cases",
+   "url": "/road-cases/",
+   "children": [
+    {
+     "name": "Equipment Cases",
+     "url": "/road-cases-dj-tables/equipment-cases/",
+     "children": [
+      {
+       "name": "DJ Equipment Cases",
+       "url": "/road-cases-dj-tables/equipment-cases/dj-equipment-cases/"
+      },
+      {
+       "name": "DJ Soft Padded Cases",
+       "url": "/road-cases-dj-tables/equipment-cases/dj-soft-padded-cases/"
+      },
+      {
+       "name": "Lighting Road Cases",
+       "url": "/road-cases-dj-tables/equipment-cases/lighting-road-cases/"
+      },
+      {
+       "name": "Laser Road Cases",
+       "url": "/road-cases-dj-tables/equipment-cases/laser-road-cases/"
+      },
+      {
+       "name": "Fog | HAZE | SFX Cases",
+       "url": "/road-cases-dj-tables/equipment-cases/fog-haze-sfx-cases/"
+      },
+      {
+       "name": "Lighting Controller Cases",
+       "url": "/road-cases-dj-tables/equipment-cases/lighting-controller-cases/"
+      },
+      {
+       "name": "Mirror Ball Road Cases",
+       "url": "/road-cases-dj-tables/equipment-cases/mirror-ball-road-cases/"
+      },
+      {
+       "name": "Microphone Cases",
+       "url": "/road-cases-dj-tables/equipment-cases/microphone-cases/"
+      },
+      {
+       "name": "Truss Transport Bags",
+       "url": "/road-cases-dj-tables/equipment-cases/truss-transport-bags/"
+      }
+     ]
+    },
+    {
+     "name": "DJ Tables",
+     "url": "/road-cases-dj-tables/dj-tables/"
+    },
+    {
+     "name": "Transport Carts | Dollies",
+     "url": "/road-cases-dj-tables/transport-carts-dollies/"
+    }
+   ]
+  },
+  {
+   "name": "Facades | Backdrops",
+   "url": "/facades-backdrops/"
+  }
+ ],
+ "home": {
+  "hero": [
+   {
+    "title": "Phantom Dynamics",
+    "text": "Internets leading source for professional nightclub lighting, DJ equipment and audio for clubs, DJs, stages, and special events.",
+    "cta": "Shop Lighting",
+    "url": "/lighting/",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/carousel/127/PS_LED_TRUSS_3.png?c=2"
+   },
+   {
+    "title": "LED Stage & Club Lighting",
+    "text": "LED pars, wash lights, panels, and effects for clubs and live events.",
+    "cta": "Shop Lighting!",
+    "url": "/lighting/led-stage-lighting/",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/carousel/131/PD_LED_TRUSS.png?c=2"
+   },
+   {
+    "title": "UV Black Lights & Glow Effects",
+    "text": "High-output UV fixtures for glow parties, clubs, venues, and stage effects.",
+    "cta": "Shop UV Lights!",
+    "url": "/lighting/blacklights/",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/carousel/132/pd_uv_led_black_light__62182.png?c=2"
+   },
+   {
+    "title": "Laser Projectors & Light Shows",
+    "text": "Create high-impact laser effects for clubs, concerts, DJs, and special events.",
+    "cta": "Shop Lasers",
+    "url": "/lasers/",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/carousel/137/PD_LASER_FAN_1487x638.png?c=2"
+   },
+   {
+    "title": "DJ Equipment & Sound Gear",
+    "text": "Controllers, mixers, audio gear, cables, and event essentials.",
+    "cta": "Shop DJ Gear",
+    "url": "/audio-equipment/dj-media-controllers/",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/carousel/139/PD_MEDIA_2_1487x638.png?c=2"
+   }
+  ],
+  "featured": [
+   "lasercube-wifi-portable-rgb-laser-projector",
+   "laser-space-cannon-skybeam-searchlight",
+   "elation-rebel-wash-12-ip65-12x60w-rgbl-moving-wash-fixture",
+   "vf-snow-flurry-ho-ep-high-output-1250w-dmx-snow-machine",
+   "genesis-low-lying-fog-generator-high-output-ground-fog-machine",
+   "typhon-ip-wash-ip65-outdoor-rated-rgbw-led-moving-head-wash",
+   "g-mix-350-350w-cmy-led-moving-head-spot-framing-shutters",
+   "mp-800u-professional-sd-usb-player-w-bluetooth-usb-dac-fm-tuner"
+  ],
+  "popular": [
+   "acclaim-rds6-6-way-rdm-dmx-splitter-rds600-dd-6wm",
+   "jr-clamp-m10ss-compact-clamp-for-truss-mounted-fixtures",
+   "heavy-duty-mirror-ball-motor-1-5-rpm-130-lb-capacity",
+   "executive-green-laser-pointer-high-visibility",
+   "adj-c-clamp-heavy-duty-lighting-truss-clamp",
+   "global-truss-r-clips-10-pack",
+   "al-driver-1-single-channel-led-driver-dimmer-ald001-dpw-311-jbat",
+   "omnisistem-20-glass-disco-mirror-ball-silver-gold-rose-gold-or-black"
+  ],
+  "tiles": [
+   {
+    "title": "Moving Head Lights",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/image-manager/moving-head-lights.png",
+    "links": [
+     {
+      "name": "Spots",
+      "url": "/nightclub-dj-lighting/moving-head-lights/moving-head-spots/"
+     },
+     {
+      "name": "Beams",
+      "url": "/nightclub-dj-lighting/moving-head-lights/moving-head-beams/"
+     },
+     {
+      "name": "Wash",
+      "url": "/nightclub-dj-lighting/moving-head-lights/moving-head-wash/"
+     },
+     {
+      "name": "Hybrid",
+      "url": "/nightclub-dj-lighting/moving-head-lights/moving-head-hybrid/"
+     }
+    ],
+    "url": "/nightclub-dj-lighting/moving-head-lights/"
+   },
+   {
+    "title": "Aerial Lasers",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/image-manager/aerial-lasers.png",
+    "links": [
+     {
+      "name": "Aerial Lasers",
+      "url": "/nightclub-lasers/aerial-lasers/"
+     },
+     {
+      "name": "Graphic Lasers",
+      "url": "/nightclub-lasers/graphic-lasers/"
+     },
+     {
+      "name": "DJ Lasers",
+      "url": "/nightclub-lasers/dj-lasers/"
+     },
+     {
+      "name": "ILDA",
+      "url": "/nightclub-lasers/laser-ilda-software/"
+     }
+    ],
+    "url": "/nightclub-lasers/aerial-lasers/"
+   },
+   {
+    "title": "Fog, Haze & SFX",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/image-manager/fog-haze-sfx.png",
+    "links": [
+     {
+      "name": "Fog Machines",
+      "url": "/fog-haze-sfx/fog-machines/"
+     },
+     {
+      "name": "Haze Machines",
+      "url": "/fog-haze-sfx/haze-machines/"
+     },
+     {
+      "name": "Fluids",
+      "url": "/fog-haze-sfx/sfx-refill-fluids/"
+     },
+     {
+      "name": "Accessories",
+      "url": "/fog-haze-sfx/sfx-accessories/"
+     }
+    ],
+    "url": "/fog-haze-sfx/"
+   },
+   {
+    "title": "UV Black Lights",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/image-manager/uv-black-lights.png",
+    "links": [
+     {
+      "name": "LED UV",
+      "url": "/lighting/uv-blacklights/led-uv-black-lights/"
+     },
+     {
+      "name": "Fluorescent",
+      "url": "/blacklights/fluorescent-blacklights/"
+     },
+     {
+      "name": "UV Wash",
+      "url": "/lighting/uv-blacklights/led-uv-black-lights/"
+     },
+     {
+      "name": "Glow Effects",
+      "url": "/lighting/blacklights/"
+     }
+    ],
+    "url": "/lighting/blacklights/"
+   },
+   {
+    "title": "Mirror Balls",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/image-manager/mirror-balls.png",
+    "links": [
+     {
+      "name": "Mirror Balls",
+      "url": "/mirror-disco-balls/mirror-balls/"
+     },
+     {
+      "name": "Motors",
+      "url": "/mirror-disco-balls/mirror-ball-motors/"
+     },
+     {
+      "name": "Pin Spots",
+      "url": "/nightclub-dj-lighting/dj-effect-lighting/pin-spots/"
+     },
+     {
+      "name": "Packages",
+      "url": "/mirror-disco-balls/mirror-ball-packages/"
+     }
+    ],
+    "url": "/mirror-balls/"
+   },
+   {
+    "title": "LED Stage Lighting",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/image-manager/led-stage-lighting.png",
+    "links": [
+     {
+      "name": "LED Pars",
+      "url": "/lighting/led-stage-lighting/led-par-can-lights/"
+     },
+     {
+      "name": "Wash Bars",
+      "url": "/lighting/led-stage-lighting/led-wash-bar-lights/"
+     },
+     {
+      "name": "Panels",
+      "url": "/lighting/led-stage-lighting/led-light-panels/"
+     },
+     {
+      "name": "Follow Spots",
+      "url": "/stage-lighting/follow-spots/"
+     }
+    ],
+    "url": "/lighting/led-stage-lighting/"
+   },
+   {
+    "title": "DMX Control",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/image-manager/dmx.png",
+    "links": [
+     {
+      "name": "Boards",
+      "url": "/dmx-lighting-controllers/dmx-lighting-boards/"
+     },
+     {
+      "name": "Wireless DMX",
+      "url": "/dmx-lighting-controllers/dmx-wireless/"
+     },
+     {
+      "name": "Dimmers",
+      "url": "/dmx-lighting-controllers/dmx-relays-dimmers-power-packs/"
+     },
+     {
+      "name": "Splitters",
+      "url": "/dmx-lighting-controllers/dmx-splitters-distributors/"
+     }
+    ],
+    "url": "/dmx-drivers-psu/"
+   },
+   {
+    "title": "Truss, Stands & Cases",
+    "image": "https://cdn11.bigcommerce.com/s-if8arfen/images/stencil/original/image-manager/truss.png",
+    "links": [
+     {
+      "name": "Truss",
+      "url": "/truss-light-stands/truss-segments/"
+     },
+     {
+      "name": "Stands",
+      "url": "/truss-stands/crank-lighting-stands/"
+     },
+     {
+      "name": "Accessories",
+      "url": "/truss-light-stands/truss-accessories/"
+     },
+     {
+      "name": "Road Cases",
+      "url": "/road-cases/"
+     }
+    ],
+    "url": "/truss-stands/"
+   }
+  ]
+ }
+}
