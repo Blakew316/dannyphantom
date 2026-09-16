@@ -16,6 +16,7 @@
   const svg = (n, cls = '') => `<svg class="ic ${cls}" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICON(n)}</svg>`;
   const lock = (on) => document.body.classList.toggle('no-scroll', on);
   const imgSize = (u, s) => (u ? u.replace(/\/images\/stencil\/[^/]+\//, `/images/stencil/${s}/`) : u);
+  const track = (name, params) => { try { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); } catch {} };
 
   /* ---------------- toast ---------------- */
   const toast = (html, ms = 2800) => {
@@ -74,6 +75,7 @@
       const k = p.slug + '|' + option; const ex = this.items.find((i) => this.key(i) === k);
       if (ex) ex.qty = Math.min(99, ex.qty + qty); else this.items.push({ ...p, option, qty });
       this.save();
+      track('add_to_cart', { currency: 'USD', value: (p.price || 0) * qty, items: [{ item_id: p.id, item_name: p.name, item_brand: p.brand, price: p.price, quantity: qty }] });
       const badge = $('[data-cart-count]'); if (badge) { badge.classList.remove('pop'); void badge.offsetWidth; badge.classList.add('pop'); }
       toast(`<img src="${esc(p.image)}" alt="">${svg('check')}<span>Added <b>${esc(p.name.length > 34 ? p.name.slice(0, 33) + '…' : p.name)}</b> to your bag</span>`);
     },
@@ -82,7 +84,7 @@
     count() { return this.items.reduce((n, i) => n + i.qty, 0); },
     subtotal() { return this.items.reduce((n, i) => n + i.qty * (i.price || 0), 0); },
     itemHTML(i) {
-      return `<div class="cart-item" data-key="${esc(this.key(i))}"><a href="${esc(i.url)}"><img src="${esc(i.image)}" alt=""></a><div class="cart-item-body">${i.brand ? `<span class="cart-item-brand">${esc(i.brand)}</span>` : ''}<a class="cart-item-name" href="${esc(i.url)}">${esc(i.name)}</a>${i.option ? `<span class="cart-item-opt">${esc(i.option)}</span>` : ''}<div class="cart-item-row"><div class="qty"><button type="button" aria-label="Decrease" data-cart-dec>${svg('minus')}</button><input type="number" value="${i.qty}" min="0" max="99" aria-label="Quantity" data-cart-qty><button type="button" aria-label="Increase" data-cart-inc>${svg('plus')}</button></div><span class="cart-item-price">${money(i.price * i.qty)}</span></div><button class="cart-item-remove" type="button" data-cart-remove>${svg('trash')} Remove</button></div></div>`;
+      return `<div class="cart-item" data-key="${esc(this.key(i))}"><a href="${esc(i.url)}"><img src="${esc(i.image)}" alt="${esc(i.name)}"></a><div class="cart-item-body">${i.brand ? `<span class="cart-item-brand">${esc(i.brand)}</span>` : ''}<a class="cart-item-name" href="${esc(i.url)}">${esc(i.name)}</a>${i.option ? `<span class="cart-item-opt">${esc(i.option)}</span>` : ''}<div class="cart-item-row"><div class="qty"><button type="button" aria-label="Decrease" data-cart-dec>${svg('minus')}</button><input type="number" value="${i.qty}" min="0" max="99" aria-label="Quantity" data-cart-qty><button type="button" aria-label="Increase" data-cart-inc>${svg('plus')}</button></div><span class="cart-item-price">${money(i.price * i.qty)}</span></div><button class="cart-item-remove" type="button" data-cart-remove>${svg('trash')} Remove</button></div></div>`;
     },
     render() {
       const n = this.count(); const sub = this.subtotal();
@@ -117,6 +119,7 @@
     const lines = cart.items.filter((i) => i.id);
     if (!lines.length) return;
     const first = lines[0];
+    track('begin_checkout', { currency: 'USD', value: cart.subtotal(), items: lines.map((i) => ({ item_id: i.id, item_name: i.name, price: i.price, quantity: i.qty })) });
     const url = `${CFG.store}/cart.php?action=add&product_id=${encodeURIComponent(first.id)}&qty=${first.qty}`;
     if (lines.length > 1) toast(`${svg('bag')}<span>Taking you to secure checkout — add remaining items from your bag.</span>`, 3500);
     setTimeout(() => { location.href = url; }, lines.length > 1 ? 900 : 0);
@@ -151,7 +154,7 @@
     if (!toks.length) { sResults.innerHTML = sResults.dataset.empty; return; }
     const prods = runSearch(q, 8); const cats = (catIndex || []).filter((c) => toks.every((t) => c[0].toLowerCase().includes(t))).slice(0, 4);
     if (!prods.length && !cats.length) { sResults.innerHTML = `<div class="search-none">No results for “${esc(q)}”. Try a brand, a category or a model name.</div>`; return; }
-    sResults.innerHTML = `${cats.length ? `<div class="search-group">Categories</div>${cats.map((c) => `<a class="search-item search-item-cat" href="${CFG.base}${esc(c[1])}"><div class="search-item-body"><strong>${hl(c[0], toks)}</strong><span>${c[2]} products</span></div>${svg('chev')}</a>`).join('')}` : ''}${prods.length ? `<div class="search-group">Products</div>${prods.map((p) => `<a class="search-item" href="${CFG.base}/${esc(p.slug)}/"><img src="${esc(imgSize(p.img, '160x160'))}" alt="" loading="lazy"><div class="search-item-body"><strong>${hl(p.name, toks)}</strong><span>${esc(p.brand || p.cat || '')}</span></div><span class="search-item-price">${p.price ? money(p.price) : '—'}</span></a>`).join('')}<div class="search-more"><a class="btn btn-ghost btn-sm" href="${CFG.base}/search/?q=${encodeURIComponent(q)}">See all results ${svg('arrow')}</a></div>` : ''}`;
+    sResults.innerHTML = `${cats.length ? `<div class="search-group">Categories</div>${cats.map((c) => `<a class="search-item search-item-cat" href="${CFG.base}${esc(c[1])}"><div class="search-item-body"><strong>${hl(c[0], toks)}</strong><span>${c[2]} products</span></div>${svg('chev')}</a>`).join('')}` : ''}${prods.length ? `<div class="search-group">Products</div>${prods.map((p) => `<a class="search-item" href="${CFG.base}/${esc(p.slug)}/"><img src="${esc(imgSize(p.img, '160x160'))}" alt="${esc(p.name)}" loading="lazy"><div class="search-item-body"><strong>${hl(p.name, toks)}</strong><span>${esc(p.brand || p.cat || '')}</span></div><span class="search-item-price">${p.price ? money(p.price) : '—'}</span></a>`).join('')}<div class="search-more"><a class="btn btn-ghost btn-sm" href="${CFG.base}/search/?q=${encodeURIComponent(q)}">See all results ${svg('arrow')}</a></div>` : ''}`;
   };
   const openSearch = () => { if (!search) return; search.hidden = false; requestAnimationFrame(() => search.classList.add('is-open')); lock(true); setTimeout(() => sInput.focus(), 50); loadIndex().then(() => sInput.value && renderResults(sInput.value)); };
   const closeSearch = () => { if (!search) return; search.classList.remove('is-open'); lock(false); setTimeout(() => { search.hidden = true; }, 300); };
@@ -177,7 +180,7 @@
     const badges = [!p.price ? '<span class="badge badge-muted">Discontinued</span>' : save ? `<span class="badge badge-sale">Save ${save}%</span>` : '', p.price && p.free ? '<span class="badge badge-ship">Free shipping</span>' : ''].filter(Boolean).join('');
     const payload = { id: p.id, slug: p.slug, name: p.name, brand: p.brand, price: p.price, image: imgSize(p.img, '320x320'), url: link };
     const quick = !p.price ? '' : p.opts ? `<a class="card-quick" href="${link}">Choose options</a>` : `<button class="card-quick" type="button" data-add="${esc(JSON.stringify(payload))}">Add to bag</button>`;
-    return `<article class="card is-new" style="--i:${i % 12}"><div class="card-figure"><a class="card-media" href="${link}" tabindex="-1" aria-hidden="true"><img src="${esc(p.img)}" alt="" loading="lazy" decoding="async" width="640" height="640">${p.alt ? `<img class="card-alt" src="${esc(p.alt)}" alt="" loading="lazy" decoding="async">` : ''}${badges ? `<div class="badges">${badges}</div>` : ''}</a>${quick}</div><div class="card-body">${p.brand ? `<div class="card-brand">${esc(p.brand)}</div>` : ''}<h3 class="card-title"><a href="${link}">${esc(p.name)}</a></h3>${stars(p.rating, p.reviews)}<div class="card-price">${p.price ? `<span class="price">${money(p.price)}</span>${save ? `<s>${money(p.was)}</s>` : ''}` : '<span class="price price-muted">No longer available</span>'}</div></div></article>`;
+    return `<article class="card is-new" style="--i:${i % 12}"><div class="card-figure"><a class="card-media" href="${link}" tabindex="-1" aria-hidden="true"><img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" decoding="async" width="640" height="640">${p.alt ? `<img class="card-alt" src="${esc(p.alt)}" alt="${esc(p.name)}, alternate view" loading="lazy" decoding="async">` : ''}${badges ? `<div class="badges">${badges}</div>` : ''}</a>${quick}</div><div class="card-body">${p.brand ? `<div class="card-brand">${esc(p.brand)}</div>` : ''}<h3 class="card-title"><a href="${link}">${esc(p.name)}</a></h3>${stars(p.rating, p.reviews)}<div class="card-price">${p.price ? `<span class="price">${money(p.price)}</span>${save ? `<s>${money(p.was)}</s>` : ''}` : '<span class="price price-muted">No longer available</span>'}</div></div></article>`;
   };
   const fromLite = (r) => ({ slug: r[0], name: r[1], brand: r[2], price: r[3], was: r[4], img: r[5], alt: r[6], rating: r[7], reviews: r[8], free: r[9], opts: r[10], id: r[11], stock: r[12], cat: r[13] });
 
@@ -233,6 +236,7 @@
   if (sGrid) {
     const q = new URLSearchParams(location.search).get('q') || ''; const inp = $('[data-search-page-input]'); inp.value = q; $('[data-search-term]').textContent = q ? ` for “${q}”` : '';
     document.title = (q ? `“${q}” – ` : '') + 'Search | Phantom Dynamics';
+    if (q) track('search', { search_term: q });
     if (q) loadIndex().then(() => { const res = runSearch(q, 200); $('[data-count]').textContent = res.length; sGrid.innerHTML = res.map((p, i) => cardHTML(p, i)).join(''); $('[data-search-empty]').hidden = !!res.length; });
     else inp.focus();
   }
@@ -255,6 +259,7 @@
   const buy = $('[data-product]');
   if (buy) {
     const base = JSON.parse(buy.dataset.product); const qtyInp = $('[data-qty] input', buy);
+    track('view_item', { currency: 'USD', value: base.price || 0, items: [{ item_id: base.id, item_name: base.name, item_brand: base.brand, price: base.price }] });
     $('[data-qty-inc]', buy) && $('[data-qty-inc]', buy).addEventListener('click', () => { qtyInp.value = Math.min(99, +qtyInp.value + 1); });
     $('[data-qty-dec]', buy) && $('[data-qty-dec]', buy).addEventListener('click', () => { qtyInp.value = Math.max(1, +qtyInp.value - 1); });
     $$('.swatches', buy).forEach((g) => g.addEventListener('click', (e) => { const b = e.target.closest('.swatch'); if (!b) return; $$('.swatch', g).forEach((x) => { x.classList.toggle('is-active', x === b); x.setAttribute('aria-checked', x === b); }); }));
@@ -300,6 +305,24 @@
     par.closest('.hero').addEventListener('mousemove', (e) => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { const r = par.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5; const y = (e.clientY - r.top) / r.height - .5; tiles.forEach((t, i) => { t.style.transform = `translate3d(${x * (10 + i * 6)}px, ${y * (10 + i * 6)}px, 0) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`; }); }); });
     par.closest('.hero').addEventListener('mouseleave', () => tiles.forEach((t) => { t.style.transform = ''; }));
   }
+
+  /* ---------------- contact form -> thank-you page ---------------- */
+  const contactForm = $('[data-contact-form]');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      if (!contactForm.checkValidity()) return;
+      e.preventDefault();
+      const btn = $('button[type="submit"]', contactForm); btn.disabled = true; btn.textContent = 'Sending…';
+      track('generate_lead', { method: 'contact_form' });
+      const done = () => { location.href = contactForm.dataset.success; };
+      // Deliver to the store's contact endpoint, then show our own confirmation page.
+      fetch(contactForm.action, { method: 'POST', body: new FormData(contactForm), mode: 'no-cors', credentials: 'omit' }).then(done, done);
+      setTimeout(done, 4000);
+    });
+  }
+  // Site-wide mobile call to action hides once the footer is on screen.
+  const mcta = $('[data-mobile-cta]');
+  if (mcta && 'IntersectionObserver' in window) { const f = $('.footer'); if (f) new IntersectionObserver(([en]) => mcta.classList.toggle('is-hidden', en.isIntersecting)).observe(f); }
 
   /* ---------------- misc ---------------- */
   document.documentElement.classList.remove('no-js');

@@ -7,11 +7,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createTemplates } from './lib/templates.js';
-import { imgSize, hash, slugify } from './lib/util.js';
+import { imgSize, hash, slugify, stripTags, truncate } from './lib/util.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const B = (process.env.BASE_PATH || '').replace(/\/$/, '');
 const siteUrl = (process.env.SITE_URL || 'https://phantomdynamics.com').replace(/\/$/, '');
+// Google Analytics 4 measurement ID. Replace the placeholder or set GA_MEASUREMENT_ID=G-XXXXXXX at build time.
+const GA_ID = process.env.GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
 const OUT = path.join(__dirname, 'dist');
 const t0 = Date.now();
 
@@ -80,8 +82,44 @@ for (const p of productsArr) {
   p.relatedProducts = rel.slice(0, 8);
 }
 
+// Unique titles and meta descriptions for every page.
+const SHIP_LINE = 'Free shipping on most U.S. orders over $299.99 and in-stock gear ships the next business day.';
+const clean = (s) => stripTags(s || '').replace(/\s+/g, ' ').trim();
+for (const c of Object.values(cats)) {
+  const parent = c.trail[c.trail.length - 1];
+  c.seoTitle = `${c.name}${parent ? ' – ' + parent.name.replace(/\s*\|\s*/g, ' & ') : ''} | Phantom Dynamics`;
+  const topBrands = Object.entries(c.products.reduce((m, s) => { const bnm = products[s].brand; if (bnm) m[bnm] = (m[bnm] || 0) + 1; return m; }, {})).sort((a, d) => d[1] - a[1]).slice(0, 3).map((x) => x[0]);
+  const blurb = clean(c.blurb).replace(/\s*-\s*Read More!?$/i, '');
+  const lead = `Shop ${c.products.length} ${c.name.toLowerCase()} products${topBrands.length ? ' from ' + topBrands.join(', ') : ''} at Phantom Dynamics.`;
+  c.seoDescription = truncate(blurb ? `${lead} ${blurb}` : `${lead} ${SHIP_LINE}`, 158);
+}
+for (const p of productsArr) {
+  p.seoTitle = `${p.name}${p.brand && !p.name.toLowerCase().includes(p.brand.toLowerCase()) ? ' by ' + p.brand : ''}${p.sku ? ' (' + p.sku + ')' : ''} | Phantom Dynamics`;
+  const body = clean(p.description);
+  p.seoDescription = truncate(p.meta_description && p.meta_description.length > 40 ? p.meta_description : (body.length > 40 ? body : `${p.name} from ${p.brand || 'Phantom Dynamics'}. ${SHIP_LINE}`), 158);
+}
+// De-duplicate titles and descriptions across products that share a name or manufacturer copy.
+const seenTitle = new Map(); const seenDesc = new Map();
+for (const p of productsArr) {
+  if (seenTitle.has(p.seoTitle)) { const n = seenTitle.get(p.seoTitle) + 1; seenTitle.set(p.seoTitle, n); p.seoTitle = `${p.name}${p.category ? ' – ' + p.category.name : ''} #${n} | Phantom Dynamics`; } else seenTitle.set(p.seoTitle, 1);
+  if (seenDesc.has(p.seoDescription)) p.seoDescription = truncate(`${p.name}: ${p.seoDescription}`, 158);
+  if (seenDesc.has(p.seoDescription)) p.seoDescription = truncate(`${p.name} (${p.sku || p.slug}): ${p.seoDescription}`, 158);
+  seenDesc.set(p.seoDescription, 1);
+}
+// Real customer reviews pulled from the product pages (only reviews with a written body).
+const reviews = [];
+for (const p of productsArr) for (const r of p.reviews) {
+  if (!r.body || r.body.length < 30) continue;
+  const m = /Published by\s+(.+?)\s+on\s+(.+)$/i.exec(r.author || '');
+  let author = m ? m[1] : (r.author || '').replace(/^Published by\s+/i, '');
+  let date = m ? m[2].replace(/,\s*\d{1,2}:\d{2}\s*[ap]m$/i, '') : '';
+  if (!author || /^unknown$/i.test(author)) author = 'Verified customer';
+  reviews.push({ slug: p.slug, product: p.name, brand: p.brand, image: p.images[0], rating: r.rating, title: r.title || 'Review', author, date, body: r.body });
+}
+reviews.sort((a, b) => (b.rating - a.rating) || (b.body.length - a.body.length));
+
 const assetVer = hash(fs.readFileSync(path.join(__dirname, 'src/css/site.css'), 'utf8') + fs.readFileSync(path.join(__dirname, 'src/js/site.js'), 'utf8')).slice(0, 8);
-const T = createTemplates({ B, nav: site.nav, cats, products, brands, blog, pages, home: site.home, assetVer, siteUrl });
+const T = createTemplates({ B, nav: site.nav, cats, products, brands, blog, pages, home: site.home, assetVer, siteUrl, reviews, gaId: GA_ID });
 
 // ----------------------------------------------------------------- output helpers
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -103,9 +141,14 @@ for (const c of Object.values(cats)) { page(c.path, T.categoryPage(c)); write(c.
 for (const p of productsArr) { page(`/${p.slug}/`, T.productPage(p)); add(`/${p.slug}/`, 0.7); }
 page('/brands/', T.brandsPage()); add('/brands/', 0.7);
 for (const b of Object.values(brands)) { page(b.href, T.brandPage(b)); write(b.dataUrl.replace(/^\//, ''), JSON.stringify(b.products.map((s) => lite(products[s])))); add(b.href, 0.6); }
-page('/blog/', T.blogIndex()); page('/articles/', T.blogIndex()); add('/blog/', 0.6);
+page('/blog/', T.blogIndex());
+// Legacy /articles/ URL redirects to the blog index.
+page('/articles/', `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Articles | Phantom Dynamics</title><link rel="canonical" href="${siteUrl}/blog/"><meta http-equiv="refresh" content="0; url=${B}/blog/"><meta name="robots" content="noindex"></head><body><p>The articles moved to <a href="${B}/blog/">${siteUrl}/blog/</a>.</p></body></html>`); add('/blog/', 0.6);
 blog.forEach((p, i) => { page(`/blog/${p.slug}/`, T.postPage(p, i)); add(`/blog/${p.slug}/`, 0.5); });
 for (const [slug, pg] of Object.entries(pages)) { if (slug === 'contact') page('/contact/', T.contactPage(pg)); else page(`/${slug}/`, T.infoPage(slug, pg)); add(`/${slug}/`, 0.4); }
+page('/contact/thank-you/', T.thankYouPage());
+page('/faq/', T.faqPage()); add('/faq/', 0.6);
+page('/reviews/', T.reviewsPage()); add('/reviews/', 0.6);
 page('/cart/', T.cartPage());
 page('/search/', T.searchPage());
 write('404.html', T.notFound());
@@ -114,11 +157,11 @@ write('404.html', T.notFound());
 write('assets/data/search.json', JSON.stringify(productsArr.map(lite)));
 write('assets/data/categories.json', JSON.stringify(Object.values(cats).map((c) => [c.name, c.path, c.products.length])));
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap.map((s) => `<url><loc>${s.loc}</loc><priority>${s.prio}</priority></url>`).join('\n')}\n</urlset>\n`);
-write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /cart/\nDisallow: /search/\nSitemap: ${siteUrl}/sitemap.xml\n`);
+write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /cart/\nDisallow: /search/\nDisallow: /contact/thank-you/\nSitemap: ${siteUrl}/sitemap.xml\n`);
 write('.nojekyll', '');
 
 copyDir(path.join(__dirname, 'src/css'), path.join(OUT, 'assets/css'));
 copyDir(path.join(__dirname, 'src/js'), path.join(OUT, 'assets/js'));
 copyDir(path.join(__dirname, 'src/img'), path.join(OUT, 'assets/img'));
 
-console.log(`Built ${written} files (${productsArr.length} products, ${Object.keys(cats).length} categories, ${Object.keys(brands).length} brands, ${blog.length} posts) in ${((Date.now() - t0) / 1000).toFixed(1)}s -> dist/`);
+console.log(`Built ${written} files (${reviews.length} customer reviews) (${productsArr.length} products, ${Object.keys(cats).length} categories, ${Object.keys(brands).length} brands, ${blog.length} posts) in ${((Date.now() - t0) / 1000).toFixed(1)}s -> dist/`);
