@@ -34,13 +34,29 @@ npm run serve     # preview at http://localhost:4173
 
 - **Type**: Apple's system stack (`-apple-system, SF Pro, Helvetica Neue`) with Inter as the cross-platform fallback,
   tight tracking on headings, generous whitespace, pill buttons.
-- **Look**: clean white product areas with Apple-grey surfaces, punctuated by dark "nightlife" bands with animated aurora
-  gradients and sweeping light beams. Respects `prefers-color-scheme: dark` and `prefers-reduced-motion`.
+- **Look**: themed on the Phantom Dynamics neon-blue wordmark (`src/img/logo.webp`, dominant #3898f8). White ground,
+  blue-tinted surfaces and blue accents only; no solid colour blocks, gradients bands or status pills. Respects
+  `prefers-color-scheme: dark` and `prefers-reduced-motion`.
 - **Motion**: staggered scroll-reveal, hover image swap and quick-add on product cards, parallax hero tiles, count-up stats,
   brand marquee, cross-document view transitions, drawer/overlay spring easing, toast confirmations.
 - **Commerce UX**: sticky glass header, hover mega menus with featured tiles, ⌘K / `/` instant search with keyboard
   navigation, bag drawer with a free-shipping progress bar, sticky mobile buy bar, client-side filters (brand, price,
   availability, sale, free shipping), sort, load-more, product gallery with zoom + swipe, spec table, YouTube videos, reviews.
+
+## Conversion and SEO features
+
+- **Internal links**: "Explore more" blocks on every category, brand, product, article and utility page; mega menu, footer and breadcrumbs everywhere.
+- **Breadcrumbs** with `BreadcrumbList` structured data on every page below the home page.
+- **FAQ**: five questions answered from the published policies at `/faq/` (with `FAQPage` structured data) and on the home page.
+- **Response-time promise** ("a real person replies within 24 hours") on the home page, contact, FAQ, thank-you, product perks and footer.
+- **Thank-you page** at `/contact/thank-you/`: the contact form posts to the store's endpoint in the background, then lands here.
+- **Sticky mobile call to action** (Ask an expert / Shop lighting) on every page; product pages use the sticky buy bar instead.
+- **Real customer reviews**: 70 written reviews pulled from the product pages, shown on the home page and at `/reviews/`, and on each product.
+- **Unique titles and meta descriptions** for all 3,300+ pages, generated from category, brand and product data and de-duplicated.
+- **Alt text** on every image (product name, category, brand, article).
+- **Google Analytics 4**: set `GA_MEASUREMENT_ID=G-XXXXXXXXXX` when building (or edit the default in `build.js`).
+  Events sent: `view_item`, `add_to_cart`, `begin_checkout`, `search`, `generate_lead`.
+- **Custom 404** with search and popular categories; `robots.txt` and `sitemap.xml` generated; privacy policy includes an analytics section.
 
 ## URL structure
 
